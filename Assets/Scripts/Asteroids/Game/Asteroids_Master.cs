@@ -7,7 +7,6 @@ public class Asteroids_Master : MonoBehaviour
     public Asteroids_System sys;
     [SerializeField] private Asteroids_InputMaster inputMaster;
     [SerializeField] private Asteroids_UI ui;
-    [SerializeField] private Transform playfield;
 
 
     //* private vars
@@ -17,17 +16,23 @@ public class Asteroids_Master : MonoBehaviour
     private bool isPaused;
 
 
-    void Start() {
+    void Awake() 
+    {
+        Application.targetFrameRate = 60;
+        Asteroids_PlayerPrefsMaster.resetAsteroidsPlayerPrefs();
+    }
+
+
+    void Start() 
+    {
         // prepare private variables
         isPaused = false;
 
         // prepare game
-        sys.resetPlayerPrefs();
-        inputMaster.initialize(sys, this);        
-        ui.initialize(sys, this);
+        inputMaster.Initialize(sys, this);        
+        ui.Initialize(sys, this);
 
         StartCoroutine("CheckForGameOver");
-        StartCoroutine("SpawnObstacle");
     }
 
 
@@ -39,27 +44,6 @@ public class Asteroids_Master : MonoBehaviour
             }
 
             yield return new WaitForSeconds(sys.checkForGameOverCooldown);
-        }
-    }
-
-    IEnumerator SpawnObstacle() {
-        while (true) {
-            if (!isPaused) {
-                /*
-                nextObstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
-                Instantiate(
-                    nextObstacle, 
-                    new Vector3(
-                            sys.obstacleSpawnPositionX, 
-                            0, 
-                            sys.obstacleSpawnPositionZ),
-                    Quaternion.identity, 
-                    playfield);
-                nextObstacle.GetComponent<Asteroids_Obstacle>().initialize();
-                */
-            }
-
-            yield return new WaitForSeconds(sys.obstacleSpawnCooldown);
         }
     }
 

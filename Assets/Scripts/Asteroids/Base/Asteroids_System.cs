@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Asteroids_System : MonoBehaviour
 {
@@ -25,22 +24,6 @@ public class Asteroids_System : MonoBehaviour
     public KeyCode inputRotateRight = KeyCode.RightArrow;
     public KeyCode inputRotateLeft = KeyCode.LeftArrow;
     public KeyCode inputPause = KeyCode.Space;
-#endregion
-
-#region SceneManagement
-    [Header ("Scene Names")]
-    public string gameSceneName = "1x_Asteroids_Game";
-
-
-    public void loadGameScene() => SceneManager.LoadScene(gameSceneName);
-#endregion
-
-#region PlayerPrefsManagement
-    [Header ("PlayerPrefsMaster Reference")]
-    public Asteroids_PlayerPrefsMaster ppmRef;
-
-
-    public void resetPlayerPrefs() => ppmRef.resetAsteroidsPlayerPrefs();
 #endregion
 }
 

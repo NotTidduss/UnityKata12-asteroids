@@ -9,7 +9,8 @@ public class Asteroids_InputMaster : MonoBehaviour
     private int convertedRunningState;
 
 
-    public void initialize(Asteroids_System sysRef, Asteroids_Master masterRef) {
+    public void Initialize(Asteroids_System sysRef, Asteroids_Master masterRef) 
+    {
         // set private vars
         sys = sysRef;
         master = masterRef;

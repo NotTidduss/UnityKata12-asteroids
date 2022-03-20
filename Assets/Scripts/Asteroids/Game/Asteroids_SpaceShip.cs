@@ -7,7 +7,7 @@ public class Asteroids_SpaceShip : MonoBehaviour
     private float rotationSpeed;
 
 
-    public void initialize(float movementSpeedSetting, float rotationSpeedSetting) {
+    public void Initialize(float movementSpeedSetting, float rotationSpeedSetting) {
         movementSpeed = movementSpeedSetting;
         rotationSpeed = rotationSpeedSetting;
     }
@@ -19,7 +19,7 @@ public class Asteroids_SpaceShip : MonoBehaviour
     public void rotateRight() => rotate(-rotationSpeed);
 
 
-    private void move(float movementSpeed) => transform.Translate(0, movementSpeed, 0);
+    private void move(float movementSpeed) => GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(0, movementSpeed * 100));
     private void rotate(float rotationSpeed) => transform.Rotate(0, 0, rotationSpeed);
 
 

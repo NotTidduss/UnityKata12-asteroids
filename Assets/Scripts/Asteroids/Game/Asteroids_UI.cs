@@ -8,6 +8,7 @@ public class Asteroids_UI : MonoBehaviour
     [SerializeField] private Asteroids_SpaceShipMaster spaceShipMaster;
     [SerializeField] private Asteroids_AsteroidMaster asteroidMaster;
 
+
     [Header ("UI Elements")]
     [SerializeField] private GameObject spaceShipSpawnPoint;
 
@@ -27,14 +28,15 @@ public class Asteroids_UI : MonoBehaviour
     private Asteroids_Master master; 
 
 
-    public void initialize(Asteroids_System sysRef, Asteroids_Master masterRef) {
+    public void Initialize(Asteroids_System sysRef, Asteroids_Master masterRef)
+    {
         // set private vars
         sys = sysRef;
         master = masterRef;
 
         // initialize scene references
-        spaceShipMaster.initialize(sysRef, spaceShipSpawnPoint);
-        asteroidMaster.initialize();
+        spaceShipMaster.Initialize(sysRef, spaceShipSpawnPoint);
+        asteroidMaster.Initialize(this);
 
         // initialize UI elements
         resultMenu.SetActive(false); 
@@ -44,9 +46,10 @@ public class Asteroids_UI : MonoBehaviour
 
 
     public void communicateControlToSpaceShip(Asteroids_SpaceShipControl control) => spaceShipMaster.communicateControlToSpaceShip(control);
+    public Vector3 getSpaceShipPosition() => spaceShipMaster.getSpaceShipPosition();
 
 
 #region Button Events
-    public void buttonPlayAgain() => master.sys.loadGameScene();
+    public void buttonPlayAgain() => Asteroids_SceneMaster.loadGameScene();
 #endregion
 }

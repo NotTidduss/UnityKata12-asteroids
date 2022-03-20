@@ -3,7 +3,7 @@ using UnityEngine;
 public class Asteroids_PlayerPrefsMaster : MonoBehaviour
 {
     // Reset all PlayerPrefs to a desirable value. Also, document them.
-    public void resetAsteroidsPlayerPrefs() {
+    public static void resetAsteroidsPlayerPrefs() {
         // INT asteroids_highScore - the highest score ever achieved by the player
         if (PlayerPrefs.GetInt("asteroids_highScore") == 0)
             PlayerPrefs.SetInt("asteroids_highScore", 0);
