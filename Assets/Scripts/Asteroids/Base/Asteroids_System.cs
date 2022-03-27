@@ -24,6 +24,7 @@ public class Asteroids_System : MonoBehaviour
     public KeyCode inputRotateRight = KeyCode.RightArrow;
     public KeyCode inputRotateLeft = KeyCode.LeftArrow;
     public KeyCode inputPause = KeyCode.Space;
+    public KeyCode inputShoot = KeyCode.E;
 #endregion
 }
 
@@ -39,5 +40,6 @@ public enum Asteroids_SpaceShipControl {
     ACCELERATE,
     BRAKE,
     ROTATE_LEFT,
-    ROTATE_RIGHT
+    ROTATE_RIGHT,
+    SHOOT
 }

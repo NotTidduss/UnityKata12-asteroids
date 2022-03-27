@@ -10,6 +10,7 @@ public class Asteroids_UI : MonoBehaviour
 
 
     [Header ("UI Elements")]
+    [SerializeField] private GameObject playArea;
     [SerializeField] private GameObject spaceShipSpawnPoint;
 
 
@@ -35,7 +36,7 @@ public class Asteroids_UI : MonoBehaviour
         master = masterRef;
 
         // initialize scene references
-        spaceShipMaster.Initialize(sysRef, spaceShipSpawnPoint);
+        spaceShipMaster.Initialize(sysRef, spaceShipSpawnPoint, playArea.transform);
         asteroidMaster.Initialize(this);
 
         // initialize UI elements

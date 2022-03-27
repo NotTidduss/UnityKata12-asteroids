@@ -11,14 +11,14 @@ public class Asteroids_SpaceShipMaster : MonoBehaviour
     private Asteroids_System sys;
     private Asteroids_SpaceShip selectedSpaceShip, currentSpaceShip;
 
-    public void Initialize(Asteroids_System sysRef, GameObject spawn) {
+    public void Initialize(Asteroids_System sysRef, GameObject spawn, Transform playAreaTransformRef) {
         // set private vars
         sys = sysRef;
         selectedSpaceShip = spaceShips[0];
 
         // spawn spaceShip
         currentSpaceShip = Instantiate(selectedSpaceShip, spawn.transform);
-        currentSpaceShip.Initialize(sys.defaultMovementSpeed, sys.defaultRotationSpeed);
+        currentSpaceShip.Initialize(sys.defaultMovementSpeed, sys.defaultRotationSpeed, playAreaTransformRef);
     }
 
 
@@ -28,6 +28,7 @@ public class Asteroids_SpaceShipMaster : MonoBehaviour
             case Asteroids_SpaceShipControl.BRAKE: currentSpaceShip.brake(); break;
             case Asteroids_SpaceShipControl.ROTATE_LEFT: currentSpaceShip.rotateLeft(); break;
             case Asteroids_SpaceShipControl.ROTATE_RIGHT: currentSpaceShip.rotateRight(); break;
+            case Asteroids_SpaceShipControl.SHOOT: currentSpaceShip.shoot(); break;
         }
     }
 

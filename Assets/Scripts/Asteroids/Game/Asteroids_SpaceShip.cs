@@ -2,17 +2,24 @@ using UnityEngine;
 
 public class Asteroids_SpaceShip : MonoBehaviour
 {
+    [Header ("Projectile Master Reference")]
+    [SerializeField] private Asteroids_ProjectileMaster projectileMaster;
+
+
     //* private vars
     private float movementSpeed;
     private float rotationSpeed;
 
 
-    public void Initialize(float movementSpeedSetting, float rotationSpeedSetting) {
+    public void Initialize(float movementSpeedSetting, float rotationSpeedSetting, Transform playAreaTransformRef) {
         movementSpeed = movementSpeedSetting;
         rotationSpeed = rotationSpeedSetting;
+
+        projectileMaster.Initialize(playAreaTransformRef);
     }
 
 
+    public void shoot() => projectileMaster.shoot();
     public void accelerate() => move(movementSpeed);
     public void brake() => move(-movementSpeed);
     public void rotateLeft() => rotate(rotationSpeed);

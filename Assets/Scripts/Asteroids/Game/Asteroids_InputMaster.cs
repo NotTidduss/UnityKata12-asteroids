@@ -24,6 +24,7 @@ public class Asteroids_InputMaster : MonoBehaviour
 
     IEnumerator CheckForInputPress() {
         while (true) {
+            if (Input.GetKeyDown(sys.inputShoot)) master.communicateControlToSpaceShip(Asteroids_SpaceShipControl.SHOOT);
             if (Input.GetKeyDown(sys.inputPause))
                 togglePause();
 

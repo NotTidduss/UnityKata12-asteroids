@@ -1150,6 +1150,7 @@ MonoBehaviour:
   inputRotateRight: 275
   inputRotateLeft: 276
   inputPause: 32
+  inputShoot: 101
 --- !u!1 &953459711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spaceShipMaster: {fileID: 873747301}
   asteroidMaster: {fileID: 191623002}
+  playArea: {fileID: 2059583004}
   spaceShipSpawnPoint: {fileID: 1785102799}
   resultMenu: {fileID: 665913935}
   textNewHighScoreInfo: {fileID: 1328270521}
